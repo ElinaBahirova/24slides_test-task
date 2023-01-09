@@ -1,0 +1,117 @@
+.annotation {
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  
+  &__icon {
+    z-index: 0;
+    position: relative;
+    height: 32px;
+    width: 32px;
+    left: 0px;
+    top: 0px;
+    border-radius: 50%;
+    background-color: #EF7058;
+    color: white;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__content {
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 56px;
+    left: 16px;
+    display: flex;
+    column-gap: 8px;
+    width: 364px;
+    border: 1px solid #EFEFF0;
+    padding: 16px;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+
+    &--new {
+      padding: 18px 25px 16px;
+    }
+  }
+
+  &__rhombus {
+    position: absolute;
+    left: 50%;
+    top: -6.5px;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    border-top: 1px solid #EFEFF0;
+    border-left: 1px solid #EFEFF0;
+    background-color: #fff;
+  }
+
+  &__author-initials {
+    flex-shrink: 0;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FDD5D5;
+    background-color: #DB7474;
+  }
+
+  &__author {
+    margin-bottom: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4A4A4A;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4A4A4A;
+  }
+
+  &__delete-button {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    height: 15px;
+    width: 12px;
+    background-image: url(../../images/bucket.svg);
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #9398a27e;
+  }
+
+  &__comment-input {
+    width: 272px;
+    outline: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: #4A4A4A;
+
+    &::placeholder {
+      color: #9398A2;
+    }
+  }
+
+  &__submit-button.button {
+    width: 16px;
+    height: 15px;
+    background-image: url(../../images/send.svg);
+  }
+}
+
+.hidden {
+  display: none;
+}

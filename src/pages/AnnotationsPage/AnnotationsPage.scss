@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Open+Sans:wght@400;600;700&display=swap');
+
+
+.annotations {
+  box-sizing: border-box;
+  height: calc(100vh - 48px);
+  padding-top: 35px;
+  background-color: #1E1E1E;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__upload-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 32px;
+  }
+
+  &__file-name {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    color: #FFFFFF;
+  }
+
+  &__upload-button {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 155px;
+    height: 40px;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1E1E1E;
+    background-color: #BEBEBE;
+    cursor: pointer;
+  }
+
+  &__image-container {
+    position: relative;
+    width: 100%;
+    // margin: 0 auto 42px;
+    margin-bottom: 42px;
+    background-color: #2A2A2A;
+  }
+
+  &__image {
+    position: relative;
+    // width: 100%;
+    margin: 0 auto;
+    max-height: 576px;
+    object-position: center;
+    object-fit: contain;
+    cursor: pointer;
+  }
+}
+
+.hint {
+  display: flex;
+  height: 24px;
+  column-gap: 8px;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #909090;
+
+  // &__text {
+  //   display: inline-block;
+  //   line-height: 24px;
+  //   height: 24px;
+  // }
+
+  &__icon {
+    // display: inline-block;
+    box-sizing: border-box;
+    height: 24px;
+    width: 24px;
+    border: 4px solid transparent;
+    border-radius: 4px;
+    background-color: #ffffff0a;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &--plus {
+      background-image: url(../../images/plus.svg);
+    }
+
+    &--mouse {
+      background-image: url(../../images/mouse.svg);
+    }
+  }
+}
