@@ -19,9 +19,16 @@ interface TodoProps {
 
 const Todo = memo(({ text, done, onClick }: TodoProps) => {
   const ref = useRenderHighlight(css.render);
+  const [isDone, setIsDone] = useState(done);
+
+  const clickHandler = () => {
+    onClick();
+    setIsDone(!isDone)
+  };
+
   return (
-    <li ref={ref} onClick={onClick} className={css.listItem}>
-      {done ? '[x]' : '[ ]'} {text}
+    <li ref={ref} onClick={clickHandler} className={css.listItem}>
+      {isDone ? '[x]' : '[ ]'} {text}
     </li>
   );
 });
@@ -31,7 +38,11 @@ export const Optimize1 = () => {
 
   const handleTodoClick = useCallback(
     (id: number) => {
-      setTodos(todos.map((todo) => (todo.id === id ? { ...todo, done: !todo.done } : todo)));
+      todos.forEach(todo => {
+        if (todo.id === id) {
+          todo.done = !todo.done;
+        }
+      });
     },
     [todos],
   );

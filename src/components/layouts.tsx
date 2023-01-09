@@ -1,18 +1,18 @@
 import clsx from 'clsx';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
-export const CenteredLayout = ({
-  className,
-  children,
-}: {
+interface Props {
   className?: string;
   children: ReactNode;
+}
+
+export const CenteredLayout: FC<Props> = ({
+  className,
+  children,
 }) => (
-  // TODO is there a better way to fill available remaining height?
-  // scroll height seems bugged :\
   <div
     className={clsx(
-      'flex flex-col items-center justify-center h-[calc(100vh-48px)] pb-32 text-slate-700',
+      'flex flex-col items-center justify-center pb-32 text-slate-700 h-[calc(100vh-48px)]',
       className,
     )}
   >

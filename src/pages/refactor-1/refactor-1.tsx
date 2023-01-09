@@ -1,25 +1,28 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { CenteredLayout } from '~/components';
 
-// TODO is there a way to not write this twice? =\
-type ButtonType = 'fast' | 'quality' | 'cheap';
+enum ButtonType {
+  fast = 'fast',
+  quality = 'quality',
+  cheap = 'cheap',
+};
 
-const buttons: ButtonType[] = ['fast', 'quality', 'cheap'];
+const buttons: ButtonType[] = Object.values(ButtonType);
 
 interface ButtonProps {
   button: ButtonType;
   selectedButton: ButtonType | null;
-  setSelectedButton: (value: ButtonType) => void;
+  setSelectedButton: (value: ButtonType | null) => void;
 }
 
-// TODO is it possible to improve this component's interface (props)?
-const Button = ({ button, selectedButton, setSelectedButton }: ButtonProps) => {
+const Button: FC<ButtonProps> = ({ button, selectedButton, setSelectedButton }) => {
   const style = button === selectedButton;
   return (
     <button
       key={button}
       onClick={() => setSelectedButton(button)}
+      onBlur={() => setSelectedButton(null)}
       className={clsx(
         'h-10 px-5 flex items-center justify-center rounded transition-colors',
         style ? 'bg-green-400' : 'bg-gray-300',

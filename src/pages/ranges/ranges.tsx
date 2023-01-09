@@ -6,10 +6,22 @@ import { colorToClassName, dataSample, Item, Range } from './utils';
 const items = untypedItems as Item[];
 const ranges = untypedRanges as Range[];
 
-const transform = (items: Item[]) => {
-  // TODO implement
+const transform = (items: Item[]): Range[] => {
+  const newRanges: Range[] = [];
 
-  return ranges;
+  items.forEach((item) => {
+    if (!newRanges.length || item.color !== newRanges[newRanges.length - 1].color) {
+      newRanges.push({
+        color: item.color,
+        start: item.date,
+        end: item.date,
+      })
+    } else {
+      newRanges[newRanges.length - 1].end = item.date;
+    }
+  })
+
+  return newRanges;
 };
 
 const RangesView = ({ ranges }: { ranges: Range[] }) => (

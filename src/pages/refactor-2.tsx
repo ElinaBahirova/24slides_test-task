@@ -1,6 +1,5 @@
+import React, { FC } from 'react';
 import { CenteredLayout } from '~/components';
-
-// TODO refactor
 
 interface QuestionOrAnswer {
   question?: string;
@@ -16,21 +15,22 @@ const QnA: QuestionOrAnswer[] = [
   { answer: 'Do I look like a counter?' },
 ];
 
-const QnaRender = ({ question, answer }: QuestionOrAnswer) => {
-  if (question) {
-    return <h3 className="font-bold text-lg">{question}</h3>;
-  } else {
-    return <p className="mb-2">{answer}</p>;
-  }
-};
-
 export const Refactor2 = () => {
   return (
     <CenteredLayout className="gap-2">
       <div className="text-3xl mb-2">See the code</div>
-      {QnA.map((item, index) => (
-        <QnaRender key={index} {...item} />
-      ))}
+      {QnA.map((item, index) => {
+        const { question, answer } = item;
+
+        return (
+          <React.Fragment key={index}>
+            {question ? (
+              <h3 className="font-bold text-lg">{question}</h3>
+            ) : <p className="mb-2">{answer}</p>
+            }
+          </React.Fragment>
+        );
+      })}
     </CenteredLayout>
   );
 };

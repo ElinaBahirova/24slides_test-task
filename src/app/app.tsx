@@ -1,6 +1,7 @@
 import { Outlet, ReactLocation, Route, Router } from '@tanstack/react-location';
 import { CenteredLayout } from '~/components';
 import { Optimize1, Optimize2, Ranges, Refactor1, Refactor2 } from '~/pages';
+import { AnnotationsPage } from '~/pages/AnnotationsPage';
 import { Header } from './header';
 
 const Welcome = () => (
@@ -36,6 +37,10 @@ const routes: Route[] = [
   {
     path: 'ranges',
     element: <Ranges />,
+  },
+  {
+    path: 'annotations',
+    element: <AnnotationsPage />,
   },
 ];
 
